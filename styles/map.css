@@ -1,0 +1,23 @@
+#map {
+  width: 900px;
+  height: 400px;
+}
+
+.map-price {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 3px 10px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  width: 100px;
+  border-radius: 20px;
+  background-color: #000;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  transition: 0.4s;
+}
+
+.map-price:hover {
+  color: black;
+  background-color: white;
+}
