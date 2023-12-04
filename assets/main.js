@@ -1,7 +1,7 @@
 import maps from './libs/maps.js';
 
 function init() {
-  maps.initialize(document.querySelector('#map'), {
+  maps.initialize(document.querySelector('.map-instance'), {
     coords: [-19.449751261709544, -44.24040469597336],
     zoom: 13,
   });

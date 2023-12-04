@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+}
+
+.accommodations {
+  width: 55vw;
+}
+
+.accommodation {
+  
+}
+
+.map-area {
+  width: 45vw;
+}
+
+.map {
+  position: sticky;
+  height: 100vh;
+  top: 0;
+}
+
+.map-instance {
+  width: 100%;
+  height: 100vh;
+}

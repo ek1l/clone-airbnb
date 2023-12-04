@@ -7,3 +7,12 @@
   font-family: sans-serif;
   font-family: 'Circular', sans-serif;
 }
+
+@font-face {
+  font-family: 'Circular';
+  src: local('Circular-Std-Book'),
+    url('../assets/fonts/Circular-Std-Book.woff2') format('woff2'),
+    url('../assets/fonts/Circular-Std-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
