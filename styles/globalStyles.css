@@ -16,3 +16,21 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Circular';
+  src: local('Circular-Std-Black'),
+    url('../assets/fonts/Circular-Std-Black.woff2') format('woff2'),
+    url('../assets/fonts/Circular-Std-Black.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: local('Circular-Std-Bold'),
+    url('../assets/fonts/Circular-Std-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Circular-Std-Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
