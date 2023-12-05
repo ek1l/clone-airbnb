@@ -42,6 +42,7 @@ const initialize = ($element, options = defaultOptions) => {
   ).addTo(map);
 
   const markers = L.featureGroup().addTo(map);
+  map.on('moveend', optionsBase.onChange);
 
   const addMarker = (attrs = {}) => {
     markers.addLayer(
@@ -56,9 +57,14 @@ const initialize = ($element, options = defaultOptions) => {
     return map.getBounds().contains(coords);
   };
 
+  const clearMarkers = () => {
+    markers.clearLayers();
+  };
+
   return {
     addMarker,
     contains,
+    clearMarkers,
   };
 };
 

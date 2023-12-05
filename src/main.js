@@ -13,6 +13,9 @@ const init = async () => {
     tileServer: 'maptiler',
     coords: [coords.latitude, coords.longitude],
     zoom: 13,
+    onChange: () => {
+      render();
+    },
   });
 
   const $accommodations = document.querySelector('.accommodations');
@@ -28,17 +31,27 @@ const init = async () => {
   const render = () => {
     const accommodationsAreaMap =
       getAccommodationsFromMapBounds(accommodationsData);
+    const $frag = document.createDocumentFragment();
 
+    $accommodations.innerHTML = '';
+    mapInstance.clearMarkers();
     accommodationsAreaMap.forEach((accommodation) => {
-      $accommodations.insertAdjacentHTML(
-        'beforeend',
-        AccommodationComponent(accommodationAdapter(accommodation)),
-      );
+      const $accommodation = AccommodationComponent({
+        ...accommodationAdapter(accommodation),
+        onMouseover() {
+          console.log('oooover', this);
+        },
+        onMouseout() {
+          console.log('Ouuuut', this);
+        },
+      });
+      $frag.appendChild($accommodation);
       mapInstance.addMarker({
         coords: [accommodation.listing.lat, accommodation.listing.lng],
         content: accommodation.pricingQuote.priceString,
       });
     });
+    $accommodations.appendChild($frag);
   };
   render();
 };

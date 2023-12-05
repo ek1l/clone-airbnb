@@ -10,9 +10,11 @@ const itemsInline = (items) => {
 };
 
 const AccommodationComponent = (props) => {
-  return `
-  <div class="accommodation">
-  <a class="accommodation-link" href="#" title=""></a>
+  const $accommodation = document.createElement('div');
+  $accommodation.classList.add('accommodation');
+  $accommodation.addEventListener('mouseover', props.onMouseover);
+  $accommodation.addEventListener('mouseout', props.onMouseout);
+  $accommodation.innerHTML = ` <a class="accommodation-link" href="#" title=""></a>
   <div class="accommodation-gallery">
     <div class="accommodation-gallery__img">
       <img src="${props.image}" alt="Imagem da casa">
@@ -71,7 +73,7 @@ const AccommodationComponent = (props) => {
       </div>
     </div>
   </div>
-</div>
-  `;
+`;
+  return $accommodation;
 };
 export default AccommodationComponent;
