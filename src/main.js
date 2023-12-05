@@ -1,8 +1,12 @@
 import maps from './libs/maps.js';
 import { getPosition } from './helpers/geolocation.js';
-
+import AccommodationComponent from './components/AccommodationComponent.js';
+import accommodationsService from './services/accommodationService.js';
 async function init() {
   const { coords } = await getPosition();
+
+  const accomodationsData = await accommodationsService.getAccommodations();
+  console.log(accomodationsData);
 
   const mapInstance = maps(document.querySelector('.map-instance'), {
     tileServer: 'maptiler',
@@ -10,30 +14,23 @@ async function init() {
     zoom: 13,
   });
 
-  mapInstance.addMarker({
-    coords: [-19.45442371086181, -44.25036484452751],
-    content: 'R$ 400',
-  });
+  const $accommodations = document.querySelector('.accommodations');
+  const render = () => {
+    $accommodations.innerHTML = AccommodationComponent({
+      title: 'acomodação 1',
+    });
 
-  mapInstance.addMarker({
-    coords: [-19.467534923063994, -44.25310914915545],
-    content: 'R$ 350',
-  });
+    $accommodations.insertAdjacentHTML(
+      'beforeend',
+      AccommodationComponent({ title: 'acomodação 2' }),
+    );
 
-  mapInstance.addMarker({
-    coords: [-19.47594809554594, -44.23370628079845],
-    content: 'R$ 5475',
-  });
-
-  mapInstance.addMarker({
-    coords: [-19.436779930397318, -44.246248500167404],
-    content: 'R$ 1600',
-  });
-
-  mapInstance.addMarker({
-    coords: [-19.468180651831954, -44.24315148247979],
-    content: 'R$ 2000',
-  });
+    $accommodations.insertAdjacentHTML(
+      'beforeend',
+      AccommodationComponent({ title: 'acomodação 3' }),
+    );
+  };
+  render();
 }
 
 export default init;
