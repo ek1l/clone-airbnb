@@ -1,10 +1,21 @@
+const itemsInline = (items) => {
+  return items
+    .map(
+      (item, itemIndex) => `
+        <span>${item.title}</span>
+        ${itemIndex < item.length - 1 ? `<span>.</span>` : ''}
+`,
+    )
+    .join('');
+};
+
 const AccommodationComponent = (props) => {
   return `
   <div class="accommodation">
   <a class="accommodation-link" href="#" title=""></a>
   <div class="accommodation-gallery">
     <div class="accommodation-gallery__img">
-      <img src="http://lorempixel.com.br/300/200" alt="Imagem da casa">
+      <img src="${props.image}" alt="Imagem da casa">
     </div>
   </div>
   <div class="accommodation-infos">
@@ -12,7 +23,7 @@ const AccommodationComponent = (props) => {
       <div class="accommodation-infos__header">
         <div>
           <span class="accommodation-infos__pretitle">
-            Entire residential home in São Loureno da Serra
+           ${props.pretitle}
           </span>
           <h3 class="accommodation-infos__title">${props.title}</h3>
         </div>
@@ -25,44 +36,38 @@ const AccommodationComponent = (props) => {
       <hr class="accommodation-divider" />
       <div class="accommodation-infos__body">
         <div class="accommodation-infos__details">
-          <span>4 guests</span>
-          <span>.</span>
-          <span>4 guests</span>
-          <span>.</span>
-          <span>4 guests</span>
-          <span>.</span>
-          <span>4 guests</span>
+        ${itemsInline(props.details)}
         </div>
-        <div class="accommodation-infos__details">
-          <span>Wifi</span>
-          <span>.</span>
-          <span>4 guests</span>
-          <span>.</span>
-          <span>4 guests</span>
-          <span>.</span>
-          <span>4 guests</span>
-        </div>
+  
         <div class="accommodation-infos__amenities">
+        ${itemsInline(props.amenities)}
         </div>
       </div>
     </div>
     <div class="accommodation-footer">
       <div class="accommodation-rating">
-        <span class="accommodation-rating__star">
+      ${
+        props.avgRating == null
+          ? ''
+          : `<span class="accommodation-rating__star">
           <svg style="height: 14px; width: 14px;" fill="#FF385C" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
           </svg>
         </span>
-        <span class="accommodation-rating__score">4.9</span>
+        <span class="accommodation-rating__score">${props.avgRating}</span>
         <div class="accommodation-rating__total-reviews">
-          ( 3 reviews )
-        </div>
+          ( ${props.reviewsCount} reviews${props.reviewsCount > 1 ? 's' : ''} )
+        </div>`
+      } 
+
       </div>
       <div class="accommodation-price">
         <span class="accommodation-price__period">
-          <strong>R$159</strong> / night
+          <strong> ${props.priceString}</strong> / night
         </span>
-        <span class="accommodation-price__total">R$1,216 total</span>
+        <span class="accommodation-price__total"> ${
+          props.priceTotal
+        } total</span>
       </div>
     </div>
   </div>

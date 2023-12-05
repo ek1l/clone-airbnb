@@ -52,8 +52,13 @@ const initialize = ($element, options = defaultOptions) => {
     );
   };
 
+  const contains = (coords) => {
+    return map.getBounds().contains(coords);
+  };
+
   return {
     addMarker,
+    contains,
   };
 };
 
