@@ -11,7 +11,7 @@ const init = async () => {
 
   const mapInstance = maps(document.querySelector('.map-instance'), {
     tileServer: 'maptiler',
-    coords: [coords.latitude, coords.longitude],
+    coords: [-27.582827870398756, -48.54245182751147],
     zoom: 13,
     onChange: () => {
       render();
@@ -29,6 +29,8 @@ const init = async () => {
     });
   };
   const render = () => {
+    const cardsAndAccommodationsMapped = new WeakMap();
+
     const accommodationsAreaMap =
       getAccommodationsFromMapBounds(accommodationsData);
     const $frag = document.createDocumentFragment();
@@ -39,17 +41,24 @@ const init = async () => {
       const $accommodation = AccommodationComponent({
         ...accommodationAdapter(accommodation),
         onMouseover() {
-          console.log('oooover', this);
+          mapInstance.setActiveMarker(
+            cardsAndAccommodationsMapped.get(this),
+            true,
+          );
         },
         onMouseout() {
-          console.log('Ouuuut', this);
+          mapInstance.setActiveMarker(
+            cardsAndAccommodationsMapped.get(this),
+            false,
+          );
         },
       });
-      $frag.appendChild($accommodation);
-      mapInstance.addMarker({
+      const marker = mapInstance.addMarker({
         coords: [accommodation.listing.lat, accommodation.listing.lng],
         content: accommodation.pricingQuote.priceString,
       });
+      cardsAndAccommodationsMapped.set($accommodation, marker);
+      $frag.appendChild($accommodation);
     });
     $accommodations.appendChild($frag);
   };

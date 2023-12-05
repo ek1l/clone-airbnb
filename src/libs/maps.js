@@ -1,7 +1,7 @@
 const L = window.L || {};
 
-const inconPrice = (content) => {
-  return L.divIcon({ className: 'map-price', html: content, iconSize: null });
+const inconPrice = ({ content, className }) => {
+  return L.divIcon({ className, html: content, iconSize: null });
 };
 
 const defaultOptions = {
@@ -9,6 +9,10 @@ const defaultOptions = {
   coords: [],
   maxZoom: 18,
   tileServer: 'maptiler',
+  marker: {
+    default: 'map-price',
+    hover: 'map-price__hover',
+  },
 };
 
 const mapTileConfig = {
@@ -45,12 +49,15 @@ const initialize = ($element, options = defaultOptions) => {
   map.on('moveend', optionsBase.onChange);
 
   const addMarker = (attrs = {}) => {
-    markers.addLayer(
-      L.marker(attrs.coords, {
-        riseOnHover: true,
-        icon: inconPrice(attrs.content),
+    const marker = L.marker(attrs.coords, {
+      riseOnHover: true,
+      icon: inconPrice({
+        content: attrs.content,
+        className: optionsBase.marker.default,
       }),
-    );
+    });
+    markers.addLayer(marker);
+    return marker;
   };
 
   const contains = (coords) => {
@@ -61,10 +68,22 @@ const initialize = ($element, options = defaultOptions) => {
     markers.clearLayers();
   };
 
+  const setActiveMarker = (marker, active = true) => {
+    marker.setIcon(
+      inconPrice({
+        content: marker.options.icon.options.html,
+        className: ` ${optionsBase.marker.default}  ${
+          active ? optionsBase.marker.hover : ''
+        } `,
+      }),
+    );
+  };
+
   return {
     addMarker,
     contains,
     clearMarkers,
+    setActiveMarker,
   };
 };
 

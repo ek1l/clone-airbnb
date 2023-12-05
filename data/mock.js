@@ -14706,7 +14706,7 @@ export default {
                       caption: null,
                       id: '1215937881',
                       picture:
-                        'https://a0.muscache.com/im/pictures/miso/Hosting-50170620/original/bf61f42b-a4b7-4c24-a695-77ebd0c0bdb9.jpeg?im_w=720',
+                        'https://www.decorfacil.com/wp-content/uploads/2016/03/imagem7-8.jpg',
                     },
                     {
                       __typename: 'DoraPicture',
@@ -15320,7 +15320,7 @@ export default {
                       caption: null,
                       id: '670592669',
                       picture:
-                        'https://a0.muscache.com/im/pictures/a05580e0-f4e2-446c-807a-05f6e82fd3a0.jpg?im_w=720',
+                        'https://udv.edu.gt/wp-content/uploads/2018/10/PROA-en-Arquitectura-vertical-1.jpg',
                     },
                     {
                       __typename: 'DoraPicture',
@@ -15940,7 +15940,7 @@ export default {
                       caption: null,
                       id: '1237615896',
                       picture:
-                        'https://a0.muscache.com/im/pictures/miso/Hosting-50026346/original/48bb1230-9f97-4e70-85bd-1824a32d97aa.jpeg?im_w=720',
+                        'https://th.bing.com/th/id/R.61e705efc28f2b57f80770aee908f704?rik=eVcEjYdVIlGlig&riu=http%3a%2f%2fdecorandocasas.com.br%2fwp-content%2fuploads%2f2014%2f03%2ffachadas-de-casas-bonitas4.jpg&ehk=jlbkMalj08xz%2fXDTwpz48I3jGi2HlfIE52QHtzP4aio%3d&risl=&pid=ImgRaw&r=0',
                     },
                     {
                       __typename: 'DoraPicture',
@@ -16512,7 +16512,7 @@ export default {
                       caption: null,
                       id: '1147285811',
                       picture:
-                        'https://a0.muscache.com/im/pictures/082aa9a4-d515-48ad-a0b2-a67bd1cc5e48.jpg?im_w=720',
+                        'https://imagens-revista.vivadecora.com.br/uploads/2016/10/casas-bonitas-decoracao-casas-modernas-piscina-na-lateral-da-casa-se-destaca-revistavd-173727-proportional-height_cover_medium.jpg',
                     },
                     {
                       __typename: 'DoraPicture',
@@ -18014,7 +18014,7 @@ export default {
                       caption: null,
                       id: '1185332184',
                       picture:
-                        'https://a0.muscache.com/im/pictures/8ecd0179-c16e-4877-9cd6-49a624d20f73.jpg?im_w=720',
+                        'https://th.bing.com/th/id/R.2b858efb8f86530677bb4bc8f690622d?rik=zgfCvbJMMzu9Aw&riu=http%3a%2f%2fimages.arquidicas.com.br%2fwp-content%2fuploads%2f2015%2f09%2f09004225%2fcasas-bonitas-com-muro.png&ehk=rzQ4E51VlOn0slWjzBviSgwqI%2bhuN9vFA3YpBgFCxNA%3d&risl=&pid=ImgRaw&r=0',
                     },
                     {
                       __typename: 'DoraPicture',
@@ -18324,7 +18324,7 @@ export default {
                       caption: null,
                       id: '616094184',
                       picture:
-                        'https://a0.muscache.com/im/pictures/7d17af38-c208-4137-ad74-21da01cde5df.jpg?im_w=720',
+                        'https://www.tuacasa.com.br/wp-content/uploads/2016/10/casas-bonitas-67-1024x1024.jpg',
                     },
                     {
                       __typename: 'DoraPicture',
