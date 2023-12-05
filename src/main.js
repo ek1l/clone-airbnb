@@ -1,8 +1,11 @@
 import maps from './libs/maps.js';
+import { getPosition } from './helpers/geolocation.js';
 
-function init() {
+async function init() {
+  const { coords } = await getPosition();
+
   maps.initialize(document.querySelector('.map-instance'), {
-    coords: [-19.449751261709544, -44.24040469597336],
+    coords: [coords.latitude, coords.longitude],
     zoom: 13,
   });
 

@@ -13,6 +13,16 @@
   flex-direction: row;
   padding: 24px 0;
   border-bottom: 1px solid #ebebeb;
+  position: relative;
+}
+
+.accommodation-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 .accommodation:last-child {
@@ -51,6 +61,7 @@
   align-items: center;
   justify-content: center;
   height: 24px;
+  z-index: 2;
 }
 
 .btn-like::before {
@@ -120,10 +131,19 @@
 }
 
 .accommodation-infos__title {
-  font-size: 16px;
   color: #484848;
+  font-size: 21px;
   font-weight: 500;
   margin-top: 4px;
+}
+
+.accommodation-infos__title,
+.accommodation-infos__pretitle {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .accommodation-divider {
