@@ -40,7 +40,18 @@
 }
 
 .bi-bookmark, .bi-clock-history {
-    margin-right: 0.2rem
+    margin-right: 0.2rem;
+    color: #bdbdbd;
+}
+
+.links-header {
+    font-family: 'Circular';
+    color: #5e5e5e;
+}
+
+.links-header:hover {
+    transition: .4s;
+    color: #cecece;
 }
 
 .box-search {
@@ -85,3 +96,8 @@
     transition: .4s;
 }
 
+@media screen and (max-width: 1270px) {
+    .links-header, .bi-bookmark, .bi-clock-history {
+        display:none;
+    }
+}
